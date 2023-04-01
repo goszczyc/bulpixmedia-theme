@@ -1,0 +1,28 @@
+.cookies-policy {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-size: 1.6rem;
+  color: #000;
+
+  & * {
+    margin-bottom: 4rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+  h2 {
+    @include heading-secondary($align-center: false);
+  }
+  h3 {
+    @include heading-secondary($align-center: false);
+    color: $clr-primary;
+  }
+  ul,ol {
+    li {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+}

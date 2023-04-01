@@ -1,0 +1,51 @@
+.offer-description {
+  max-width: 90rem;
+  padding-top: 6rem;
+  text-align: center;
+  margin: 0 auto;
+
+
+  * {
+    margin-bottom: 3rem
+  }
+
+  em {
+    font-style: normal;
+    color: $clr-primary;
+    font-size: 1.5em;
+  }
+  
+  h2 {
+    @include heading-secondary;
+  }
+
+  h3 {
+    color: $clr-primary;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+}
+
+.offer-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 15rem;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.showcase-realization {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}

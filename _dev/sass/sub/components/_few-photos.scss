@@ -1,0 +1,18 @@
+.showcase-realization__photos {
+  margin-top: 4rem;
+  .showcase-realization__photo-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    margin-bottom: 2rem;
+    
+    .showcase-realization__img {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: calc(100% - 40px);
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+}

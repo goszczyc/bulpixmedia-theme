@@ -1,0 +1,112 @@
+.offers {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+
+  &__headings {
+    color: #fff;
+    max-width: 120rem;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+
+    h2 {
+      @include heading-primary;
+      margin-bottom: 6rem;
+    }
+    p {
+      @include heading-secondary;
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__cards {
+    max-width: 132.5rem;
+    margin: 0 auto;
+
+    a {
+      margin-bottom: 4rem;
+    }
+
+    .offers__card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      padding: 2rem;
+      padding-top: 28rem;
+      min-height: 100%;
+      cursor: pointer;
+      box-shadow: 0 0 10px 0 #000;
+      transition: transform $transition-slow;
+
+      &::before {
+        @include pseudo;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.2);
+        transition: background $transition-slow;
+      }
+      &::after {
+        @include pseudo;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 35px 0 #000;
+        opacity: 0;
+        transition: opacity $transition-slow;
+      }
+
+
+      &-title {
+        position: relative;
+        @include heading-secondary($align-center: false, $dark: false);
+        background-color: #000;
+        width: fit-content;
+        padding: .5rem;
+        margin-bottom: 2rem;
+        transition: transform $transition-slow;
+      }
+      &-description {
+        position: relative;
+        color: #fff;
+        font-size: 1.6;
+        line-height: 1.75;
+        transition: transform $transition-slow;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+        &::before {
+          background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+        &::after {
+          opacity: 1;
+        }
+        .offers__card-title,
+        .offers__card-description {
+          transform: translateY(-30px);
+        }
+      }
+    }
+  }
+
+  &__background-tape {
+    position: absolute;
+    top: 10rem;
+    right: 0;
+    width: 32.4rem;
+    height: auto;
+    transform: translateX(50%);
+    z-index: -1;
+    @media (max-width: 992px) {
+      opacity: 0.8;
+    }
+  }
+}

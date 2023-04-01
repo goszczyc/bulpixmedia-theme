@@ -1,0 +1,54 @@
+.contact-info {  
+  margin-top: 5rem;
+  margin-bottom: 8em;
+
+  &__content {
+    position: relative;
+
+    .contact-info__heading {
+      h2 {
+        @include heading-secondary($align-center: false);
+        margin-bottom: 4rem;
+      }
+      font-size: 1.6rem;
+      margin-bottom: 4rem;
+    }
+  
+    
+  
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  
+  
+    .contact-info__link {
+      color: $clr-primary;
+      margin-bottom: 0.5rem;
+      
+      a {
+        text-decoration: underline;
+        transition: color $transition-regular;
+        &:hover {
+          color: $clr-secondary;
+        }
+      }
+  
+      &-type {
+        color: #000;
+        font-weight: 800;
+        text-decoration: none;
+      }
+    }
+  
+    .contact-info__image {
+      position: absolute;
+      top: 5%;
+      right: 0;
+      width: 45rem;
+      height: auto;
+      transform: translateX(120%);
+    }
+  }
+}

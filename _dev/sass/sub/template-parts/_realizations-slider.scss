@@ -1,0 +1,209 @@
+.chosen-realizations-container {
+  margin-top: 5rem;
+  margin-bottom: 6rem;
+  .chosen-realizations {
+    position: relative;
+    padding: 0;
+    padding-bottom: 6rem;
+
+    &::before {
+      @include pseudo;
+      right: 0;
+      left: 9rem;
+      top: 0;
+      height: 100%;
+      background: #000;
+      z-index: -1;
+    }
+
+    &::after {
+      @include pseudo;
+      width: 648px;
+      height: 324px;
+      bottom: -12rem;
+      left: 2rem;
+      background-image: repeating-linear-gradient(
+          transparent,
+          transparent 18px,
+          #fff 18px,
+          #fff 36px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          #000,
+          #000 18px,
+          #fff 18px,
+          #fff 36px
+        );
+
+      z-index: -2;
+    }
+
+    &__heading {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-left: 9rem;
+      padding: 2.8rem 3rem;
+      color: #000;
+
+      &-title {
+        font-size: 6rem;
+        font-weight: 800;
+        letter-spacing: 0.2rem;
+        text-transform: lowercase;
+        text-shadow: 2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+        width: fit-content;
+        @media (max-width: 1200px) {
+          font-size: 4.5rem;
+        }
+        @media (max-width: 992px) {
+          font-size: 3.6rem;
+        }
+      }
+      &-link {
+        color: $clr-primary;
+        font-size: 1.2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        transition: color $transition-regular;
+        width: fit-content;
+        margin-top: 1.5rem;
+        &:hover,
+        &:focus {
+          color: $clr-secondary;
+        }
+      }
+    }
+
+    &__slider {
+      position: relative;
+      .slick-slide {
+        &:not(.slick-current) {
+          .chosen-realizations__slide {
+            transform-origin: right;
+            transform: scale(0.9);
+          }
+        }
+      }
+      .chosen-realizations__arrow {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 8rem;
+        top: 50%;
+        background-color: $clr-primary;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background $transition-regular;
+        z-index: 2;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 2.7rem;
+          height: auto;
+          object-fit: contain;
+          transform: translate(-50%, -50%);
+        }
+
+        &--prev {
+          transform: translateY(calc(-50% - 40px));
+        }
+        &--next {
+          transform: translateY(calc(-50% + 40px));
+        }
+
+        &:hover {
+          background: #debe10;
+        }
+      }
+
+      .chosen-realizations__slide {
+        position: relative;
+        transition: transform $transition-regular;
+
+        &-thumb {
+          position: relative;
+          padding-bottom: 50%;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+
+        &-title {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          @include heading-secondary($dark: false);
+          padding: 1rem 2rem;
+          padding-top: 3rem;
+          background-image: linear-gradient(
+            transparent,
+            rgba($color: #000, $alpha: 1)
+          );
+        }
+        &-link {
+          display: block;
+          color: $clr-primary;
+          font-size: 1.2rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          text-align: center;
+          transition: color $transition-regular;
+          margin-top: 1.5rem;
+          &:hover,
+          &:focus {
+            color: $clr-secondary;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width:576px) {
+    .chosen-realizations {
+      &::before {
+        left: 2rem;
+      }
+
+      &__heading {
+        margin-left: 2rem;
+      }
+
+      &__slider {
+        .chosen-realizations__arrow {
+          right: 4rem;
+          width: 4rem;
+          height: 4rem;
+          img {
+            width: 2rem;
+          }
+          &--prev {
+            transform: translateY(calc(-50% - 30px));
+          }
+          &--next {
+            transform: translateY(calc(-55% + 30px));
+          }
+        }
+      }
+    }
+  }
+}

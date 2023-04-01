@@ -1,0 +1,12 @@
+.showcase-realization__photo {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 60rem;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}

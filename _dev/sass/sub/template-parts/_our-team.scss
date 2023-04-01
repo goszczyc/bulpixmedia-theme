@@ -1,0 +1,116 @@
+.our-team {
+  padding-top: 10rem;
+
+  .our-team__heading {
+    h2 {
+      @include heading-primary;
+      margin-bottom: 6rem;
+    }
+
+    h3 {
+      @include heading-secondary;
+      margin-bottom: 10rem;
+    }
+  }
+  .our-team__member {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+
+    &-photo {
+      position: relative;
+      margin-bottom: 1rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .our-team__member-description {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        height: 93.51%;
+        transition: background $transition-regular;
+
+        p {
+          font-size: 1.8rem;
+          line-height: 1.6;
+          color: #fff;
+          opacity: 0;
+          transition: opacity $transition-regular;
+        }
+        @media (max-width: 576px) {
+          align-items: flex-start;
+         p {
+          line-height: 1.4; 
+          font-size: 1.4rem;
+         }
+        }
+        @media (max-width: 420px) {
+          align-items: flex-start;
+          padding: 0.5rem;
+         p {
+          font-size: 1.2rem;
+         }
+        }
+
+        &[data-name="Karol Mikina"] {
+          margin-right: 8.39%;
+        }
+      }
+      .our-team__member-expand-btn {
+        position: absolute;
+        bottom: 10%;
+        left: 1rem;
+        padding: 1rem;
+        height: 6.8rem;
+        width: 6.8rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        background: #0088be;
+        z-index: 6;
+        cursor: pointer;
+        img {
+          height: 100%;
+          width: auto;
+          object-fit: contain;
+          transition: transform $transition-regular;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.3);
+          }
+          & ~ {
+            .our-team__member-description {
+              background-color: rgba($color: #000, $alpha: 0.5);
+              p {
+                opacity: 1;
+              }
+            }
+          }
+        }
+        @media (max-width: 420px) {
+          height: 4.8rem;
+          width: 4.8rem;
+        }
+      }
+    }
+    &-name {
+      @include heading-secondary($align-center: false);
+      margin-bottom: 1.5rem;
+    }
+    &-position {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+  }
+}

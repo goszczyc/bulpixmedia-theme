@@ -1,0 +1,71 @@
+.realization {
+  padding-top: 9rem;
+  &__content {
+    text-align: center;
+    font-size: 1.6rem;
+    & * {
+      margin-bottom: 4rem
+    }
+
+    h2 {
+      @include heading-primary;
+    }
+    h3 {
+      @include heading-secondary;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 4rem;
+    }
+
+  }
+  &__video {
+    display: flex;
+    margin-top: 4rem;
+
+    &-container {
+      position: relative;
+      padding-bottom: 56.25%;
+    }
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      z-index: 2;
+    }
+
+    &-description {
+      position: relative;
+      padding: 2rem;
+      background-color: #000;
+      margin-block: 2rem;
+      z-index: 1;
+
+      &:hover {
+        transform: translateX(0);
+      }
+
+      @media (max-width: 768px) {
+        margin: 0;
+      }
+
+      &-executor {
+        list-style: none;
+        color: #fff;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+      }
+      &-type {
+        font-weight: 600;
+      }
+    }
+  }
+}

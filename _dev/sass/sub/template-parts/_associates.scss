@@ -1,0 +1,21 @@
+.associates {
+  padding: 0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+
+  &__heading {
+    @include heading-primary($align-center:false);
+    margin-bottom: 10rem;
+  }
+
+  &__slider {
+    display: flex;
+    .associates__logo {
+      height: 12rem;
+      width: auto;
+      object-fit: contain;
+      padding: 0 2rem;
+      filter: grayscale(1);
+    }
+  }
+}

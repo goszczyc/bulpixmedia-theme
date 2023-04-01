@@ -1,0 +1,55 @@
+.offer-assuring {
+  position: relative;
+  background-color: #000;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  overflow: hidden;
+  max-width: 100%;
+
+  &__bg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    min-width: 28rem;
+    width: 60%;
+    max-width: 45rem;
+    height: auto;
+    transform: translateY(-50%);
+    opacity: 0.9;
+  }
+
+  &__heading {
+    position: relative;
+    h2 {
+      @include heading-primary($align-center: false, $dark: false);
+      margin-bottom: 7rem;
+    }
+
+    p {
+      @include heading-secondary($align-center: false);
+      font-weight: 400;
+      color: #debe10;
+      margin-bottom: 3.6rem;
+    }
+  }
+
+  &__list {
+    position: relative;
+    .offer-assuring__list-item {
+      margin-bottom: 2.5rem;
+      color: #fff;
+      font-size: 1.8rem;
+      padding-right: 4rem;
+
+      p {
+        color: inherit;
+        font-size: inherit;
+        max-width: 40rem;
+      }
+
+      @media (max-width: 768px) {
+        padding-right: 0;
+      }
+    }
+  }
+}

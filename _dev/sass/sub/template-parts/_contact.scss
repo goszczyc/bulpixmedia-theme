@@ -1,0 +1,244 @@
+.contact {
+  position: relative;
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  &__form {
+    padding-top: 14rem;
+
+    form {
+      position: relative;
+    }
+
+    .contact__form-heading {
+      position: relative;
+      padding: 20px;
+      margin-bottom: 4.6rem;
+      
+      h2 {
+        @include heading-primary($align-center: false);
+      }
+      p {
+        @include heading-secondary($align-center: false)
+      }
+
+      .contact__form-arrow {
+        position: absolute;
+        left: 16.5rem;
+        top: 0;
+        width: 8rem;
+        height: auto;
+        object-fit: contain;
+        transform: translateY(calc(-100% - 4.4rem));
+      }
+    }
+
+    .contact__form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3.6rem;
+
+      &:last-child {
+        margin-bottom: 1rem;
+      }
+
+      &--message {
+        margin-bottom: 1.4rem;
+      }
+
+      .wpcf7-not-valid-tip {
+        position: absolute;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
+
+      &-input {
+        font-family: $font-secondary;
+        font-size: 2.2rem;
+        font-weight: 1000;
+        line-height: 1;
+        padding: 2rem 1.8rem;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-bottom: 3px solid $text-clr-primary;
+        color: $text-clr-primary;
+        transition: all $transition-regular;
+
+        &::placeholder {
+          color: $text-clr-primary;
+        }
+
+        &--message {
+          font-family: $font-primary;
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 1.4;
+          border: 3px solid $text-clr-primary;
+          resize: none;
+        }
+        &:active,
+        &:focus {
+          border-color: $clr-secondary;
+
+          &::placeholder {
+            color: $clr-secondary;
+          }
+        }
+      }
+      &-label {
+        font-size: 2.2rem;
+        font-weight: 1000;
+        font-family: $font-secondary;
+        line-height: 1;
+        padding-left: 1.6rem;
+        margin-bottom: 1.8rem;
+      }
+      &--submit {
+        flex-direction: row;
+        position: unset;
+        .wpcf7-spinner {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 0;
+          background-color: rgba($color: #fff, $alpha: 0.6);
+          backdrop-filter: blur(2px);
+          border-radius: unset;
+          &::before {
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spining 800ms linear infinite;
+            background-color: unset;
+            border: 8px solid $clr-primary;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+          }
+        }
+      }
+      &--accept {
+        position: relative;
+
+        .contact__form-accept-text {
+          font-size: 1.1rem;
+          line-height: 1.3;
+          color: #909090;
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .contact__form-acceptance {
+          display: none;
+
+          & ~ span {
+            position: relative;
+            padding-left: 3.6rem;
+            font-size: 1.4rem;
+            font-weight: 1000;
+            font-family: $font-secondary;
+            line-height: 1.4;
+            cursor: pointer;
+            transition: $transition-regular;
+
+            &::before {
+              @include pseudo;
+              left: 0;
+              top: 0;
+              height: 2.3rem;
+              width: 2.3rem;
+              border: 3px solid $text-clr-primary;
+              transform: translateY(-0.4rem);
+              background-color: #fff;
+              transition: all $transition-regular;
+            }
+            &::after {
+              @include pseudo;
+              top: 0.6rem;
+              left: 1.2rem;
+              height: 0.6rem;
+              width: 1.2rem;
+              border-bottom: 3px solid #fff;
+              border-left: 3px solid #fff;
+              transform: translate(-50%, -50%) rotate(-45deg) scale(0);
+              border-color: #000;
+              transition: transform $transition-fast
+                cubic-bezier(0.52, 1.02, 0.85, 1.5);
+            }
+            &:hover {
+              color: $clr-secondary;
+              &::before {
+                border-color: $clr-secondary;
+              }
+            }
+          }
+
+          &:checked {
+            & ~ span {
+              &::after {
+                transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .wpcf7 .wpcf7-response-output {
+      border: none;
+      font-size: 1.4rem;
+      margin: 0;
+      padding-left: 20px;
+      color: rgb(255, 136, 0);
+    }
+    .wpcf7 form.sent .wpcf7-response-output {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      color: #000;
+      font-size: 2rem;
+      span {
+        font-size: 4rem;
+        color: $clr-primary;
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    &__image {
+      position: absolute;
+      top: 14rem;
+      left: 0;
+      &::before {
+        @include pseudo;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #ffffff, $alpha: 0.7);
+      }
+    }
+  }
+}
+
+@keyframes spining {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

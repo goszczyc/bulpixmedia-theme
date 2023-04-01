@@ -1,0 +1,116 @@
+/** BREAKPOINTS MEDIA **/
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+/** CENTER HORIZONTAL & VERTICAL **/
+@mixin center($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+/** PSEUDOELEMENT AFTER & BEFORE **/
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+/** POSITION ABSOLUTE **/
+@mixin pos-abs($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+/** CALCULATE TO REM **/
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+  font-size: calculateRem($size);
+}
+
+// Page Components
+@mixin heading-primary($dark: true, $banner: false, $align-center: true, $lowercase: true) {
+  font-size: 5rem;
+  font-family: $font-secondary;
+  font-weight: 1000;
+  line-height: 1.2;
+
+  @if ($lowercase) {
+    text-transform: lowercase;
+  }
+
+  @if ($align-center) {
+    text-align: center;
+  }
+
+  @if ($dark) {
+    color: #000;
+  } @else {
+    color: #fff;
+  }
+
+  @include media(xs) {
+    font-size: 6rem;
+  }
+
+  @include media(sm) {
+    font-size: 7rem;
+  }
+
+  @include media(md) {
+    font-size: 8rem;
+  }
+
+  @if ($banner) {
+    @include media(lg) {
+      font-size: 9rem;
+    }
+  }
+}
+
+@mixin heading-secondary($dark: true, $banner: false, $align-center: true) {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  @if ($align-center) {
+    text-align: center;
+  }
+
+  @if ($dark) {
+    color: #000;
+  } @else {
+    color: #fff;
+  }
+
+  @include media(xs) {
+    font-size: 2rem;
+  }
+
+  @include media(sm) {
+    font-size: 2.4rem;
+  }
+
+  @include media(md) {
+    font-size: 2.6rem;
+  }
+}

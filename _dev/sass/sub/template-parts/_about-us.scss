@@ -1,0 +1,95 @@
+.about-us {
+  position: relative;
+  padding-top: 14rem;
+
+  &::before {
+    @include pseudo;
+    top: 16rem;
+    left: 0;
+    width: 58.333%;
+    height: calc(70%);
+    
+    background-image: radial-gradient(#fff9e5 20%, transparent 20%), radial-gradient(#fff9e5 20%, transparent 20%);
+    background-position: 0 0, 50px 50px;
+    background-size: 20px 20px;
+  }
+
+  .about-us__heading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+
+    h2 {
+      @include heading-primary($align-center: false);
+      line-height: calc(1);
+    }
+    .about-us__heading-arrow {
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      width: 8rem;
+      z-index: 2;
+    }
+    .about-us__heading-tape {
+      min-width: 6rem;
+      max-width: 19.6rem;
+      height: auto;
+      object-fit: contain;
+      transform: translateY(-35%);
+    }
+  }
+  .about-us__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 8rem;
+    min-width: 20rem;
+
+    h3 {
+      @include heading-secondary($align-center: false);
+      margin-bottom: 4rem;
+    }
+    p {
+      font-size: 1.6rem;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+  }
+  .about-us__photo {
+    display: flex;
+    align-items: flex-end;
+    padding-right: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  @media (max-width: 992px) {
+    &::before {
+      width: 100%;
+    }
+    .about-us__heading {
+      margin-bottom: 5rem;
+      .about-us__heading-arrow {
+        top: 100%;
+        width: 6rem;
+      }
+    }
+    .about-us__photo {
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-us__text {
+      p {
+        font-size: 1.4;
+        line-height: 1.5;
+      }
+    }
+  }
+}
